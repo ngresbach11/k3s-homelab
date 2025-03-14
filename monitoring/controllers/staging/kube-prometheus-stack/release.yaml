@@ -27,4 +27,8 @@ spec:
   values:
     grafana:
       adminPassword: testPassword123 # TODO : Encrypt this later when this is up and running
-      
+      ingress:
+        enabled: true
+        ingressClassName: traefik
+        hosts:
+          - grafana.natetech.org
