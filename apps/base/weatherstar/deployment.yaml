@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherstar
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: weatherstar
+  template:
+    metadata:
+      labels:
+        app: weatherstar
+    spec:
+      securityContext:
+        fsGroup: 1000 # node group ID
+        runAsUser: 1000 # node user ID
+        runAsGroup: 1000 # node group ID
+      containers:
+        - name: weatherstar
+          image: ghcr.io/netbymatt/ws4kp:5.14.3
+          ports:
+            - containerPort: 8080
+          securityContext:
+            allowPrivilegeEscalation: false

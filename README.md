@@ -9,7 +9,7 @@ One of my goals currently is to gain a deeper understanding of kubernetes, and I
 Currently I am running a single virtualized node "staging" cluster to get things up and running. I wanted to have a few focus areas to keep in the forefront of my mind during this project:
 
 - Gitops wherever possible, baking in automation wherever appropriate
-- Keeping things as secure as possible through the use of encrypting all secrets pushed to git, keeping nodes in a separate VLAN from the rest of my network, etc
+- Keeping things as secure as possible through the use of encrypting all secrets pushed to git, keeping nodes in a separate VLAN from the rest of my network, running applications as a non-root user, etc
 - Building a strong basic infrastructure that allows for as much scalability as possible
 - Staying organized to make things easier for myself and anybody else exploring this repo
 - Documenting my progress and changes I make over time so I can learn from my successes and mistakes
@@ -27,7 +27,7 @@ Currently I am running a single virtualized node "staging" cluster to get things
 
 ## Directory structure
 
-To keep things organized, I've sticked to Flux's official [guide for structuring repositories](https://fluxcd.io/flux/guides/repository-structure/). Specifically, I'm basing my structure on their "monorepo" way of handling things:
+To keep things organized, I've sticked to Flux's official [guide for structuring repositories](https://fluxcd.io/flux/guides/repository-structure/). Specifically, I'm basing my structure on their "monorepo" way of handling things, as this will make things easier to manage when I end up adding another cluster:
 
 ```
 ├── apps
@@ -45,7 +45,8 @@ To keep things organized, I've sticked to Flux's official [guide for structuring
 
 ## Currently Deployed applications
 
-- [Linkding](https://github.com/sissbruecker/linkding) - A self-hosted bookmark manager. I followed a tutorial to assist in getting this stood up as a demo application, but I am using it to save articles and other links for myself. Currently available hosted by myself here https://linkding.natetech.org/
+- [Linkding](https://github.com/sissbruecker/linkding) - A self-hosted bookmark manager. I followed a tutorial to assist in getting this stood up as a demo application, but I am using it to save articles and other links for myself. Available hosted and exposed at https://linkding.natetech.org/
+- [Weatherstar 4000+](https://github.com/netbymatt/ws4kp) - Self hosted weather site that pulls data from [NOAA's weather API](https://www.weather.gov/documentation/services-web-api) and displays it in the style of a 90s weather channel. Being hosted and exposed at https://weatherstar.natetech.org
 
 ## Current goals/additional plans
 
