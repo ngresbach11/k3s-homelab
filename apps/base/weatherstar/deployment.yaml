@@ -18,7 +18,7 @@ spec:
         runAsGroup: 1000 # node group ID
       containers:
         - name: weatherstar
-          image: ghcr.io/netbymatt/ws4kp:5.14.3
+          image: ghcr.io/netbymatt/ws4kp:v5.14.3
           ports:
             - containerPort: 8080
           securityContext:
