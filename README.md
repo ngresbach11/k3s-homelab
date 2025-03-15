@@ -51,4 +51,5 @@ To keep things organized, I've sticked to Flux's official [guide for structuring
 
 - Set up an additional "production" cluster
 - Deploy more applications
-- Explore possibly using [cert-manager](https://github.com/cert-manager/cert-manager) to automate issuance/renewal of [Lets Encrypt](https://letsencrypt.org/) certs 
+- Explore possibly using [cert-manager](https://github.com/cert-manager/cert-manager) to automate issuance/renewal of [Lets Encrypt](https://letsencrypt.org/) certs
+- Automated alerting - right now I'm considering using [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) to send automated alerts from prometheus to a discord server
