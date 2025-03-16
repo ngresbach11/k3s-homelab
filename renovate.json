@@ -4,5 +4,18 @@
     "fileMatch": [
       "\\.yaml$"
     ]
+  },
+  "helm": {
+    "enabled": true,
+    "fileMatch": [
+      "/monitoring/controllers/staging/kube-prometheus-stack/release.yaml",
+      "/monitoring/controllers/base/kube-prometheus-stack/repository.yaml"
+    ],
+    "helmRepositories": [
+      {
+        "url": "https://prometheus-community.github.io/helm-charts",
+        "name": "prometheus-community"
+      }
+    ]
   }
 }
