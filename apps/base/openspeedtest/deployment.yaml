@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openspeedtest
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: openspeedtest
+  template:
+    metadata:
+      labels:
+        app: openspeedtest
+    spec:
+      securityContext:
+        fsGroup: 101 # nginx group ID
+        runAsUser: 101 # nginx user ID
+        runAsGroup: 101 # nginx group ID
+      containers:
+        - name: openspeedtest
+          image: openspeedtest/latest:v2.0.5
+          ports:
+            - containerPort: 3000
+          securityContext:
+            allowPrivilegeEscalation: false
