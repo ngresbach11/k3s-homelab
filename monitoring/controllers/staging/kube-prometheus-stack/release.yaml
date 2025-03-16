@@ -24,7 +24,11 @@ spec:
       - paths: ["/metadata/annotations/prometheus-operator-validated"]
         target:
           kind: PrometheusRule
-  valuesFrom:
-    - secretKeyRef:
-        name: grafana-values-encrypted
-        key: grafana-values.yaml
+  values:
+    grafana:
+      adminPassword: testPassword123 # TODO : Encrypt this later when this is up and running
+      ingress:
+        enabled: true
+        ingressClassName: traefik
+        hosts:
+          - grafana.natetech.org
