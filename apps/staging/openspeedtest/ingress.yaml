@@ -1,14 +1,18 @@
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: openspeedtest-ingress
+  name: openspeedtest
   namespace: openspeedtest
 spec:
-  entryPoints:
-    - web
-  routes:
-    - match: Host('speedtest.natetech.org')
-      kind: Rule
-      services:
-        - name: openspeedtest
-          port: 3000
+  ingressClassName: traefik
+  rules:
+    - host: speedtest.natetech.org
+      http:
+        paths:
+          - backend:
+              service:
+                name: openspeedtest
+                port:
+                  number: 3000
+            path: /
+            pathType: Prefix
