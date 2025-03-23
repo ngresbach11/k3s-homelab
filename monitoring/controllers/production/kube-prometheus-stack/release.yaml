@@ -31,4 +31,4 @@ spec:
         enabled: true
         ingressClassName: traefik
         hosts:
-          - grafana-staging.natetech.org
+          - grafana-prod.natetech.org
