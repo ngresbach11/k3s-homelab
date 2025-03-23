@@ -6,7 +6,9 @@ One of my goals currently is to gain a deeper understanding of kubernetes, and I
 
 ## Overview
 
-Currently I am running a single virtualized node "staging" cluster to get things up and running. I wanted to have a few focus areas to keep in the forefront of my mind during this project:
+Currently I am running two kubernetes clusters. The first being single virtualized node "staging" cluster that is being used to test applications, their deployments, etc. The second of the two is a cluster of three mini-pc's I bought used online for relatively cheap, with one server node and two agent nodes. This setup isn't "truly" highly available, but it is good enough for just my homelab.
+
+ I wanted to have a few focus areas to keep in the forefront of my mind during this project:
 
 - Gitops wherever possible, baking in automation wherever appropriate
 - Keeping things as secure as possible through the use of encrypting all secrets pushed to git, keeping nodes in a separate VLAN from the rest of my network, running applications as a non-root user, etc
