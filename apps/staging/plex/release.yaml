@@ -23,3 +23,12 @@ spec:
       enabled: true
       ingressClassName: traefik
       url: plex.natetech.org
+    extraVolumes:
+      - name: movies
+        hostPath:
+          path: /mnt/movies
+          type: Directory
+      - name: tvshows
+        hostPath:
+          path: /mnt/tvshows
+          type: Directory
