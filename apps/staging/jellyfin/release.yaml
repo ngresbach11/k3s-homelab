@@ -22,7 +22,11 @@ spec:
     ingress:
       enabled: true
       className: traefik
-      url: jellyfin.natetech.org
+      hosts:
+        - host: jellyfin.natetech.org
+          paths:
+            - path: /
+              pathType: Prefix
     volumeMounts:
       - name: movies
         mountPath: /mnt/movies
