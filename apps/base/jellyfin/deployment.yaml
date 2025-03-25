@@ -18,8 +18,6 @@ spec:
         app: jellyfin
         app.kubernetes.io/name: jellyfin
     spec:
-      nodeSelector:
-        worker: "true"
       containers:
       - image: linuxserver/jellyfin:10.10.5
         imagePullPolicy: Always
