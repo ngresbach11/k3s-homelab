@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jellyfin
+    app.kubernetes.io/instance: jellyfin
+    app.kubernetes.io/name: jellyfin
+  name: jellyfin
+  namespace: jellyfin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jellyfin
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+        app.kubernetes.io/name: jellyfin
+    spec:
+      nodeSelector:
+        worker: "true"
+      containers:
+      - image: linuxserver/jellyfin:10.10.5
+        imagePullPolicy: Always
+        name: jellyfin
+        ports:
+        - containerPort: 8096
+          name: web
+          protocol: TCP
+        env:
+        - name: TZ
+          value: America/Denver
+        volumeMounts:
+        - mountPath: /config
+          name: jellyfin-config
+        - mountPath: /data/movies
+          name: movies-volume
+        - mountPath: /data/tvshows
+          name: tvshows-volume
+      volumes:
+      - name: jellyfin-config
+        persistentVolumeClaim:
+          claimName: jellyfin-config-pvc
+      - name: movies-volume
+        hostPath:
+          path: /mnt/movies
+          type: Directory
+      - name: tvshows-volume
+        hostPath:
+          path: /mnt/tvshows
+          type: Directory
