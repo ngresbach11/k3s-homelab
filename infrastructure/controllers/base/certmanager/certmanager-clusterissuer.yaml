@@ -6,6 +6,8 @@ spec:
   acme:
     email: nate@natetech.org
     server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: cloudflare-clusterissuer-account-key
     solvers:
     - dns01:
         cloudflare:
