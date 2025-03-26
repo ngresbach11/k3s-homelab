@@ -4,3 +4,4 @@ namespace: plex
 resources:
   - ../../base/plex/
   - release.yaml
+  - certificate.yaml
