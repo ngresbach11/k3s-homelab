@@ -16,3 +16,7 @@ spec:
                   number: 3000
             path: /
             pathType: Prefix
+  tls:
+  - hosts:
+    - speedtest.natetech.org
+    secretName: openspeedtest-certificate-secret
