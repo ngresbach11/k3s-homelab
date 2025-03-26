@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: plex-ingress-certificate
-  namespace: jellyfin
+  namespace: plex
 spec:
   secretName: plex-certificate-secret
   issuerRef:
