@@ -16,3 +16,7 @@ spec:
                   number: 8096
             path: /
             pathType: Prefix
+  tls:
+  - hosts:
+    - jellyfin.natetech.org
+    secretName: jellyfin-certificate-secret

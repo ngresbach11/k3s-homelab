@@ -4,3 +4,4 @@ namespace: jellyfin
 resources:
   - ../../base/jellyfin
   - ingress.yaml
+  - certificate.yaml
