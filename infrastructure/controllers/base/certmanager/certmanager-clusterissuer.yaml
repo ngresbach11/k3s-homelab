@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: cloudflare-clusterissuer
+spec:
+  acme:
+    email: nate@natetech.org
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    solvers:
+    - dns01:
+        cloudflare:
+          apiTokenSecretRef:
+            name: cloudflare-api-token-secret
+            key: api-token
