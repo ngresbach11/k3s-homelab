@@ -4,3 +4,4 @@ namespace: openspeedtest
 resources:
   - ../../base/openspeedtest
   - ingress.yaml
+  - certificate.yaml
