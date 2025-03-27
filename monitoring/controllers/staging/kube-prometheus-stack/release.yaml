@@ -32,3 +32,7 @@ spec:
         ingressClassName: traefik
         hosts:
           - grafana-staging.natetech.org
+        tls:
+          - secretName: grafana-certificate-secret
+            hosts:
+            - grafana-staging.natetech.org
