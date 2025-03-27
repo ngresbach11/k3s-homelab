@@ -19,11 +19,11 @@ spec:
   upgrade:
     crds: CreateReplace
   values:
-    persistence:
-      homarrDatabase:
-        enabled: true
-        storageClassName: "local-path"
-        size: "1Gi"
+    #persistence:
+    #  homarrDatabase:
+    #    enabled: true
+    #    storageClassName: "local-path"
+    #    size: "1Gi"
     service:
       enabled: true
     ingress:
