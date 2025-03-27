@@ -1,0 +1,42 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: homarr-labs
+  namespace: homarr
+spec:
+  interval: 4h
+  chart:
+    spec:
+      chart: homarr
+      version: "3.x.x"
+      sourceRef:
+        kind: HelmRepository
+        name: homarr
+        namespace: homarr
+      interval: 12h
+  install:
+    crds: Create
+  upgrade:
+    crds: CreateReplace
+  values:
+    persistence:
+      homarrDatabase:
+        enabled: true
+        storageClassName: "default"
+        size: "1Gi"
+    service:
+      enabled: true
+    ingress:
+      enabled: true
+      ingressClassName: "traefik"
+      annotations:
+      hosts:
+        - host: homarr.natetech.org
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+      tls:
+        - hosts:
+          - "homarr.natetech.org"
+          - "www.homarr.natetech.org"
+          secretName: homarr-certificate-secret
