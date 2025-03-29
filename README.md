@@ -54,7 +54,7 @@ To keep things organized, I've sticked to Flux's official [guide for structuring
 ## Currently deployed non-public applications
 
 - [OpenSpeedTest](https://github.com/openspeedtest/Speed-Test) - An open source, self hostable speedtest server
-- [Jellyfin](https://jellyfin.org/) - A free, open source media server
+- [Jellyfin](https://jellyfin.org/) - A free, open source media server. I honestly prefer the TV app for plex over jellyfin, but it can be nice to have a backup mediaserver running
 - [Plex](https://www.plex.tv/) - Another self-hostable media server. Currently troubleshooting issues with the TV app accessing my instance inside this cluster, so I may scrap it and go back to running this on just docker on a separate machine.
 
 ## Current goals/additional plans
