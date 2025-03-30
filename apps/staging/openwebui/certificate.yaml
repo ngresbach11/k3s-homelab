@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: openwebuix-ingress-certificate
+  name: openwebui-ingress-certificate
   namespace: openwebui
 spec:
   secretName: openwebui-certificate-secret
@@ -9,4 +9,4 @@ spec:
     name: cloudflare-clusterissuer
     kind: ClusterIssuer
   dnsNames:
-    - ai.natetech.org
+    - chat.natetech.org
