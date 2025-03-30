@@ -54,10 +54,12 @@ To keep things organized, I've sticked to Flux's official [guide for structuring
 ## Currently deployed non-public applications
 
 - [OpenSpeedTest](https://github.com/openspeedtest/Speed-Test) - An open source, self hostable speedtest server
+- [Open-WebUI](https://github.com/open-webui/open-webui?tab=readme-ov-file#open-webui-) - Self hosted web app for running locally hosted large language models. I'm currently running ollama on docker on another machine and communicating into that, but am playing with the idea of moving ollama to k8s as well, and setting it to use a gpu node.
 - [Jellyfin](https://jellyfin.org/) - A free, open source media server. I honestly prefer the TV app for plex over jellyfin, but it can be nice to have a backup mediaserver running
 - [Plex](https://www.plex.tv/) - Another self-hostable media server. Currently troubleshooting issues with the TV app accessing my instance inside this cluster, so I may scrap it and go back to running this on just docker on a separate machine.
 
 ## Current goals/additional plans
 
+- Explore options for better storage. Right now most of my stuff I'm initially standing up is using default local-path storage class, considering setting up NFS or something similar
 - Deploy more applications: specifically a dashboard, and a few other apps I've played with in the past
 - Automated alerting - right now I'm considering using [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) to send automated alerts from prometheus to a discord server
