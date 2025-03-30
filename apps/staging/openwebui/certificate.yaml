@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: openwebui-ingress-certificate
-  namespace: openwebui
+  namespace: open-webui
 spec:
   secretName: openwebui-certificate-secret
   issuerRef:
