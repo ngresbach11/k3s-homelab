@@ -4,10 +4,8 @@ metadata:
   name: open-webui-service
   namespace: open-webui
 spec:
-  type: NodePort
+  ports:
+    - port: 8080
   selector:
     app: open-webui
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
+  type: ClusterIP

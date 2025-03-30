@@ -3,5 +3,5 @@ kind: Kustomization
 namespace: open-webui
 resources:
   - ../../base/openwebui/
-#  - ingress.yaml
-#  - certificate.yaml
+  - ingress.yaml
+  - certificate.yaml
