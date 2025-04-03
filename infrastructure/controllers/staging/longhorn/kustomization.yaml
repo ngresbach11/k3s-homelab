@@ -4,3 +4,5 @@ namespace: longhorn-system
 resources:
   - ../../base/longhorn
   - release.yaml
+  - certificate.yaml
+  - ingress.yaml
