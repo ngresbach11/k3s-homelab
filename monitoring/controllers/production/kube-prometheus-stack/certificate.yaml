@@ -9,4 +9,4 @@ spec:
     name: cloudflare-clusterissuer
     kind: ClusterIssuer
   dnsNames:
-    - grafana-prod.natetech.org
+    - grafana.natetech.org

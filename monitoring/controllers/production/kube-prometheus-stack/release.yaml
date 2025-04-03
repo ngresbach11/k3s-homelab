@@ -31,8 +31,8 @@ spec:
         enabled: true
         ingressClassName: traefik
         hosts:
-          - grafana-prod.natetech.org
+          - grafana.natetech.org
         tls:
           - secretName: grafana-certificate-secret
             hosts:
-            - grafana-prod.natetech.org
+            - grafana.natetech.org
