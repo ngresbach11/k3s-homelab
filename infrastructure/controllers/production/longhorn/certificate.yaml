@@ -9,4 +9,4 @@ spec:
     name: cloudflare-clusterissuer
     kind: ClusterIssuer
   dnsNames:
-    - longhorn-staging.natetech.org
+    - longhorn.natetech.org
