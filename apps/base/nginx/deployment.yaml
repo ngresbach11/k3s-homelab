@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-test
+  template:
+    metadata:
+      labels:
+        app: nginx-test
+    spec:
+      containers:
+        - name: linkding
+          image: nginx
+          volumeMounts:
+            - name: nginx-test-data
+              mountPath: /data/
+      volumes:
+        - name: nginx-test-data
+          persistentVolumeClaim:
+            claimName: nginx-test-data-pvc
