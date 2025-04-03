@@ -4,4 +4,3 @@ resources:
   - renovate
   - certmanager
   - longhorn
-  - nfs-csi
