@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: navidrome
+  name: navidrome
+  namespace: navidrome 
+spec:
+  ports:
+  - name: web-tcp
+    port: 4533
+    protocol: TCP
+    targetPort: 4533
+  selector:
+    app: navidrome

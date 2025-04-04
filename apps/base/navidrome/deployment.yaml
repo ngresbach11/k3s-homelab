@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: navidrome
+    app.kubernetes.io/instance: navidrome
+    app.kubernetes.io/name: navidrome
+  name: navidrome
+  namespace: navidrome
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: navidrome
+  template:
+    metadata:
+      labels:
+        app: navidrome
+        app.kubernetes.io/name: navidrome
+    spec:
+      containers:
+      - image: deluan/navidrome:0.55.1
+        imagePullPolicy: Always
+        name: navidrome
+        ports:
+        - containerPort: 4533
+          name: web
+          protocol: TCP
+        env:
+        - name: ND_LOGLEVEL
+          value: info
+        volumeMounts:
+        - mountPath: /data
+          name: navidrome-data
+        - mountPath: /music
+          name: music-volume
+      volumes:
+      - name: navidrome-data
+        persistentVolumeClaim:
+          claimName: navidrome-data-pvc
+      - name: music-volume
+        hostPath:
+          path: /mnt/music
+          type: Directory
