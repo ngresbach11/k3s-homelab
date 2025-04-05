@@ -19,7 +19,7 @@ spec:
         app.kubernetes.io/name: navidrome
     spec:
       containers:
-      - image: deluan/navidrome:0.55.1
+      - image: deluan/navidrome:0.55.2
         imagePullPolicy: Always
         name: navidrome
         ports:
