@@ -27,6 +27,7 @@ Currently I am running two kubernetes clusters. The first being single virtualiz
 - [Cert-manager](https://cert-manager.io/) - Being used to automate the issuance and renewal of [Lets Encrypt](https://letsencrypt.org/) certificates to applications
 - [Renovate](https://github.com/renovatebot/renovate) - Automated image updates through creating PRs to keep my applications up to date
 - [SOPS](https://fluxcd.io/flux/guides/mozilla-sops/) - Used to handle encryption/decryption of secrets so I can safely keep secrets in code
+- [Longhorn](https://longhorn.io/) - Distribued HA storage between nodes. I looked into Rook+Ceph and a few other options, but longhorn seemed lightweight and easy enough to use so I went with that for now.
 
 ## Directory structure
 
@@ -56,6 +57,7 @@ To keep things organized, I've sticked to Flux's official [guide for structuring
 - [OpenSpeedTest](https://github.com/openspeedtest/Speed-Test) - An open source, self hostable speedtest server
 - [Open-WebUI](https://github.com/open-webui/open-webui?tab=readme-ov-file#open-webui-) - Self hosted web app for running locally hosted large language models. I'm currently running ollama on docker on another machine and communicating into that, but am playing with the idea of moving ollama to k8s as well, and setting it to use a gpu node.
 - [Jellyfin](https://jellyfin.org/) - A free, open source media server. I honestly prefer the TV app for plex over jellyfin, but it can be nice to have a backup mediaserver running. I had plex running in here fine, but after about a week the TV app was having issues connecting (not sure if it's an issue because of going through traefik etc). Decided to move plex back to docker on another system. Jellyfin is a good backup in case plex breaks anyway.
+- [Navidrome](https://github.com/navidrome/navidrome) - A free, open source music streaming platform. Think self-hosted spotify for your own music. I mostly did this for fun, but also because I have some music that isn't on spotify- various amateur artists' old music I have from years past and such. I'm using [Symfonium](https://symfonium.app/) on my phone currently to connect to this, because I think it's a bit better than navidrome's web UI.
 
 ## Current goals/additional plans
 
