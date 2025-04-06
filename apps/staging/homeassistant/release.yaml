@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: home-assistant
-      version: "x.x.x"
+      version: "0.x.x"
       sourceRef:
         kind: HelmRepository
         name: home-assistant
@@ -32,8 +32,8 @@ spec:
         - secretName: homeassistant-certificate-secret
           hosts:
             - ha.natetech.org
-    persistence:
-      enabled: false
-      accessMode: ReadWriteOnce
-      size: 1Gi # TODO: change to 5Gi if I deploy to prod- this staging node I don't have much space currently
-      storageClass: "longhorn"
+#    persistence:
+#      enabled: false
+#      accessMode: ReadWriteOnce
+#      size: 1Gi # TODO: change to 5Gi if I deploy to prod- this staging node I don't have much space currently
+#      storageClass: "longhorn"
