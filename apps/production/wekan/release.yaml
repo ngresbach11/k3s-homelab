@@ -25,6 +25,15 @@ spec:
         ## likely want to set it to `1` or some lower value.
         ##
         targetCPUUtilizationPercentage: 80
+    ingress:
+      enabled: true
+      path: /
+      pathtype: ImplementationSpecific
+      hosts: "wekan.natetech.org"
+      tls:
+        - secretName: wekan-certificate-secret
+          hosts:
+            - wekan.natetech.org
     mongodb-replicaset:
       enabled: true
       replicas: 3
