@@ -29,11 +29,20 @@ spec:
       enabled: true
       path: /
       pathtype: ImplementationSpecific
-      hosts: "wekan.natetech.org"
+      hosts: 
+        - "wekan.natetech.org"
       tls:
         - secretName: wekan-certificate-secret
           hosts:
             - wekan.natetech.org
+    sharedDataFolder:
+      enabled: true
+      path: /data
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      resources:
+        requests:
+          storage: 5Gi
     mongodb-replicaset:
       enabled: true
       replicas: 3
