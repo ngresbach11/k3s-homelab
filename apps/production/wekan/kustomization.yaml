@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - ../../base/wekan
   - release.yaml
+  - certificate.yaml
