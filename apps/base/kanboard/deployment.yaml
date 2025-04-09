@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbkanboard
+  namespace: kanboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      srv: dbkanboard
+  template:
+    metadata:
+      labels:
+       srv: dbkanboard
+    spec:
+      volumes:
+        - name: kanboard-dba      
+          persistentVolumeClaim:
+            claimName: dba-kanboard-dba
+        - name: kanboard-cfg
+          persistentVolumeClaim:
+            claimName: dba-kanboard-cfg        
+      containers:
+      - args:
+        - --default-authentication-plugin=mysql_native_password
+        env:
+        - name: DEBUG
+          value: 'true'
+        - name: MYSQL_DATABASE
+          value: kanboard
+        - name: MYSQL_PASSWORD
+          value: LetUsKanban2024
+        - name: MYSQL_ROOT_PASSWORD
+          value: LetUsKanban2024
+        - name: MYSQL_USER
+          value: kanboarduser
+        image: mariadb:latest
+        name: dbkanboard
+        ports:
+        - containerPort: 3306
+          protocol: TCP
+          name: mariadb
+        resources: {}
+        volumeMounts:
+        - mountPath: "/var/lib/mysql"
+          name: kanboard-dba
+        - mountPath: "/etc/mysql"
+          name: kanboard-cfg
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kanboard
+  namespace: kanboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: kanboard
+  template:
+    metadata:
+      labels:
+        run: kanboard
+    spec:
+      volumes:
+      - name: kanboard-data
+        persistentVolumeClaim:
+          claimName: kanboard-data        
+      - name: kanboard-plugins
+        persistentVolumeClaim:
+          claimName: kanboard-plugins        
+      - name: kanboard-ssl
+        persistentVolumeClaim:
+          claimName: kanboard-ssl
+      - name: kanboard-config
+        configMap:
+          name: kanboard-configmap
+      containers:
+      - env:
+        - name: DEBUG
+          value: 'true'
+        - name: DATABASE_URL
+          value: 'mysql://kanboarduser:LetUsKanban2024@mariadb/kanboard'
+        name: kanboard
+        image: kanboard/kanboard:latest
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.1"
+            memory: "128Mi"
+        volumeMounts:
+        - mountPath: "/var/www/app/data"
+          name: kanboard-data
+        - mountPath: "/var/www/app/plugins"
+          name: kanboard-plugins
+        - mountPath: "/etc/nginx/ssl"
+          name: kanboard-ssl
+        - mountPath: "/var/www/app/config.php"
+          name: kanboard-config
+          subPath: config.php

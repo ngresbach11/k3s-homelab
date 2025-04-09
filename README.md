@@ -62,5 +62,6 @@ To keep things organized, I've sticked to Flux's official [guide for structuring
 ## Current goals/additional plans
 
 - Explore options for better storage. Right now most of my stuff I'm initially standing up is using default local-path storage class, considering setting up NFS or something similar
-- Deploy more applications: specifically a dashboard, and a few other apps I've played with in the past
+- Deploy more applications: specifically a dashboard, kanban board app (I want to experiment with putting some of my personal "todo" lists in this kind of format to organize things. Testing a few options now) and a few other apps I've played with in the past
 - Automated alerting - right now I'm considering using [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) to send automated alerts from prometheus to a discord server
+- Testing other ways of doing things. Right now I'm using flux for CD because I've never touched it before, but want to play with argo as well.
