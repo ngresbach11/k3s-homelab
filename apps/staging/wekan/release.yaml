@@ -1,0 +1,35 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: wekan
+  namespace: wekan
+spec:
+  interval: 4h
+  chart:
+    spec:
+      chart: wekan
+      version: "7.x.x"
+      sourceRef:
+        kind: HelmRepository
+        name: wekan
+        namespace: wekan
+      interval: 12h
+  values:
+    replicaCount: 1
+    autoscaling:
+      enabled: true
+      config:
+        minReplicas: 1
+        maxReplicas: 16
+        ## Note: when setting this, a `resources.request.cpu` is required. You
+        ## likely want to set it to `1` or some lower value.
+        ##
+        targetCPUUtilizationPercentage: 80
+    mongodb-replicaset:
+      enabled: true
+      replicas: 3
+      replicaSetName: rs0
+      securityContext:
+        runAsUser: 1000
+        fsGroup: 1000
+        runAsNonRoot: true
