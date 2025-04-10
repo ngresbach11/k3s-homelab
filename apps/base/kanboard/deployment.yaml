@@ -72,9 +72,9 @@ spec:
       - name: kanboard-ssl
         persistentVolumeClaim:
           claimName: kanboard-ssl
-      - name: kanboard-config
-        configMap:
-          name: kanboard-configmap
+      #- name: kanboard-config
+      #  configMap:
+      #    name: kanboard-configmap
       containers:
       - env:
         - name: DEBUG
