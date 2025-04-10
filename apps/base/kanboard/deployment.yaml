@@ -75,6 +75,9 @@ spec:
       #- name: kanboard-config
       #  configMap:
       #    name: kanboard-configmap
+      - name: kanboard-config
+        persistentVolumeClaim:
+          claimName: kanboard-config
       containers:
       - env:
         - name: DEBUG
