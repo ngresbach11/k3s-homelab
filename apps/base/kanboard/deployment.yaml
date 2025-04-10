@@ -102,4 +102,3 @@ spec:
           name: kanboard-ssl
         - mountPath: "/var/www/app/config.php"
           name: kanboard-config
-          subPath: config.php
