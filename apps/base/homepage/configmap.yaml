@@ -4,57 +4,72 @@ metadata:
   name: homepage
   namespace: homepage
   labels:
-    app.kubernetes.io/name: homepage
+    app: homepage
 data:
   kubernetes.yaml: |
     mode: cluster
-  settings.yaml: ""
-  #settings.yaml: |
-  #  providers:
-  #    longhorn:
-  #      url: https://longhorn.my.network
+  settings.yaml: |
+    title: Nate Homepage
+
+    background:
+      image: https://cdnb.artstation.com/p/assets/images/images/006/897/659/large/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg
+      blur: sm # sm, md, xl... see https://tailwindcss.com/docs/backdrop-blur
+      saturate: 100 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+      brightness: 50 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+      opacity: 100 # 0-100
+
+    theme: dark
+    color: slate
+
+    useEqualHeights: true
+
+    layout:
+      DNS:
+        header: true
+        style: row
+        columns: 4
+      Other:
+        header: true
+        style: row
+        columns: 4
   custom.css: ""
   custom.js: ""
-  bookmarks.yaml: |
-    - Developer:
-        - Github:
-            - abbr: GH
-              href: https://github.com/
+  bookmarks.yaml: ""
   services.yaml: |
-    - My First Group:
-        - My First Service:
-            href: http://localhost/
-            description: Homepage is awesome
-
-    - My Second Group:
-        - My Second Service:
-            href: http://localhost/
-            description: Homepage is the best
-
-    - My Third Group:
-        - My Third Service:
-            href: http://localhost/
-            description: Homepage is 😎
+    - DNS:
+        - Pi-Hole1:
+            icon: pi-hole.svg
+            href: "{{HOMEPAGE_VAR_PIHOLE_URL_1}}"
+            description: quasar
+            widget:
+                type: pihole
+                url: "{{HOMEPAGE_VAR_PIHOLE_URL_1}}"
+                key: "{{HOMEPAGE_VAR_PIHOLE_API_KEY_1}}"
+        - Pi-Hole2:
+            icon: pi-hole.svg
+            href: "{{HOMEPAGE_VAR_PIHOLE_URL_2}}"
+            description: blazar
+            widget:
+                type: pihole
+                url: "{{HOMEPAGE_VAR_PIHOLE_URL_2}}"
+                key: "{{HOMEPAGE_VAR_PIHOLE_API_KEY_2}}"
+    - Other:
+        - GitLab:
+            icon: gitlab.svg
+            href: https://gitlab.com
+            description: source code
+        - GitHub:
+            icon: github.svg
+            href: https://github.com
+            description: source code
   widgets.yaml: |
-    - kubernetes:
-        cluster:
-          show: true
-          cpu: true
-          memory: true
-          showLabel: true
-          label: "cluster"
-        nodes:
-          show: true
-          cpu: true
-          memory: true
-          showLabel: true
     - resources:
-        backend: resources
-        expanded: true
         cpu: true
         memory: true
-        network: default
-    - search:
-        provider: duckduckgo
-        target: _blank
+        disk: /
+
+    - datetime:
+        text_size: xl
+        format:
+          timeStyle: short
   docker.yaml: ""
