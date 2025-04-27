@@ -11,6 +11,9 @@ spec:
   replicas: 3
   progressDeadlineSeconds: 600
   revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: homepage
   strategy:
     type: RollingUpdate
     rollingUpdate:
