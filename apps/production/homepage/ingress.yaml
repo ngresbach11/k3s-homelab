@@ -15,9 +15,9 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: kanboard
+            name: homepage-service
             port:
-              number: 80
+              number: 3000
   tls:
   - hosts:
     - home.natetech.org
