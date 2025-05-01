@@ -24,10 +24,18 @@ data:
     useEqualHeights: true
 
     layout:
+      Main:
+        header: true
+        style: row
+        columns: 4
       DNS:
         header: true
         style: row
         columns: 4
+      Apps:
+        header: true
+        style: row
+        columns: 6
       Other:
         header: true
         style: row
@@ -36,6 +44,26 @@ data:
   custom.js: ""
   bookmarks.yaml: ""
   services.yaml: |
+    - Main
+        - Proxmox
+            icon: proxmox.svg
+            href: "{{HOMEPAGE_VAR_PROXMOX_URL}}"
+            description: Greenmachine
+            widget:
+                type: proxmox
+                url: "{{HOMEPAGE_VAR_PROXMOX_URL}}"
+                username: "{{HOMEPAGE_VAR_PROXMOX_USER}}"
+                password: "{{HOMEPAGE_VAR_PROXMOX_API_KEY}}"
+                node: greenmachine
+        - Portainer:
+            icon: portainer.svg
+            href: "{{HOMEPAGE_VAR_PORTAINER_URL}}"
+            description: docker
+            widget:
+                type: portainer
+                url: "{{HOMEPAGE_VAR_PORTAINER_URL}}"
+                env: 2
+                key: "{{HOMEPAGE_VAR_PORTAINER_API_KEY}}"
     - DNS:
         - Pi-Hole1:
             icon: pi-hole.svg
@@ -53,6 +81,19 @@ data:
                 type: pihole
                 url: "{{HOMEPAGE_VAR_PIHOLE_URL_2}}"
                 key: "{{HOMEPAGE_VAR_PIHOLE_API_KEY_2}}"
+    - Apps:
+        - Open-webui:
+            icon: chatgpt.svg
+            href: https://chat.natetech.org
+            description: Local LLM
+        - Linkding
+            icon: linkding.svg
+            href: https://linkding.natetech.org
+            description: Bookmark manager
+        - Wekan
+            icon: atlassian-jira.svg
+            href: https://wekan.natetech.org
+            description: Kanban board
     - Other:
         - GitLab:
             icon: gitlab.svg
