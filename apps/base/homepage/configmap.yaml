@@ -116,8 +116,8 @@ data:
             icon: atlassian-jira.svg
             href: https://wekan.natetech.org
             description: Kanban board
-    - Monitoring
-        - Grafana
+    - Monitoring:
+        - Grafana:
             icon: grafana.svg
             href: https://grafana.natetech.org
             description: Grafana
