@@ -44,53 +44,53 @@ data:
   custom.js: ""
   bookmarks.yaml: ""
   services.yaml: |
-    - Main
-        - Proxmox
+    - Main:
+        - Proxmox:
             icon: proxmox.svg
             href: "{{HOMEPAGE_VAR_PROXMOX_URL}}"
             description: Greenmachine
             widget:
-                type: proxmox
-                url: "{{HOMEPAGE_VAR_PROXMOX_URL}}"
-                username: "{{HOMEPAGE_VAR_PROXMOX_USER}}"
-                password: "{{HOMEPAGE_VAR_PROXMOX_API_KEY}}"
-                node: greenmachine
+              type: proxmox
+              url: "{{HOMEPAGE_VAR_PROXMOX_URL}}"
+              username: "{{HOMEPAGE_VAR_PROXMOX_USER}}"
+              password: "{{HOMEPAGE_VAR_PROXMOX_API_KEY}}"
+              node: greenmachine
         - Portainer:
             icon: portainer.svg
             href: "{{HOMEPAGE_VAR_PORTAINER_URL}}"
             description: docker
             widget:
-                type: portainer
-                url: "{{HOMEPAGE_VAR_PORTAINER_URL}}"
-                env: 2
-                key: "{{HOMEPAGE_VAR_PORTAINER_API_KEY}}"
+              type: portainer
+              url: "{{HOMEPAGE_VAR_PORTAINER_URL}}"
+              env: 2
+              key: "{{HOMEPAGE_VAR_PORTAINER_API_KEY}}"
     - DNS:
         - Pi-Hole1:
             icon: pi-hole.svg
             href: "{{HOMEPAGE_VAR_PIHOLE_URL_1}}"
             description: quasar
             widget:
-                type: pihole
-                url: "{{HOMEPAGE_VAR_PIHOLE_URL_1}}"
-                key: "{{HOMEPAGE_VAR_PIHOLE_API_KEY_1}}"
+              type: pihole
+              url: "{{HOMEPAGE_VAR_PIHOLE_URL_1}}"
+              key: "{{HOMEPAGE_VAR_PIHOLE_API_KEY_1}}"
         - Pi-Hole2:
             icon: pi-hole.svg
             href: "{{HOMEPAGE_VAR_PIHOLE_URL_2}}"
             description: blazar
             widget:
-                type: pihole
-                url: "{{HOMEPAGE_VAR_PIHOLE_URL_2}}"
-                key: "{{HOMEPAGE_VAR_PIHOLE_API_KEY_2}}"
+              type: pihole
+              url: "{{HOMEPAGE_VAR_PIHOLE_URL_2}}"
+              key: "{{HOMEPAGE_VAR_PIHOLE_API_KEY_2}}"
     - Apps:
         - Open-webui:
             icon: chatgpt.svg
             href: https://chat.natetech.org
             description: Local LLM
-        - Linkding
+        - Linkding:
             icon: linkding.svg
             href: https://linkding.natetech.org
             description: Bookmark manager
-        - Wekan
+        - Wekan:
             icon: atlassian-jira.svg
             href: https://wekan.natetech.org
             description: Kanban board
