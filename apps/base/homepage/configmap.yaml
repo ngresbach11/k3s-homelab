@@ -32,7 +32,15 @@ data:
         header: true
         style: row
         columns: 4
+      Storage:
+        header: true
+        style: row
+        columns: 6
       Apps:
+        header: true
+        style: row
+        columns: 6
+      Monitoring:
         header: true
         style: row
         columns: 6
@@ -45,6 +53,15 @@ data:
   bookmarks.yaml: ""
   services.yaml: |
     - Main:
+        - UniFi:
+            icon: unifi.svg
+            href: "{{HOMEPAGE_VAR_UNIFI_NETWORK_URL}}"
+            description: network
+            widget:
+              type: unifi
+              url: "{{HOMEPAGE_VAR_UNIFI_NETWORK_URL}}"
+              username: "{{HOMEPAGE_VAR_UNIFI_NETWORK_USERNAME}}"
+              password: "{{HOMEPAGE_VAR_UNIFI_NETWORK_PASSWORD}}"
         - Proxmox:
             icon: proxmox.svg
             href: "{{HOMEPAGE_VAR_PROXMOX_URL}}"
@@ -81,6 +98,11 @@ data:
               type: pihole
               url: "{{HOMEPAGE_VAR_PIHOLE_URL_2}}"
               key: "{{HOMEPAGE_VAR_PIHOLE_API_KEY_2}}"
+    - Storage:
+        - Longhorn:
+            icon: longhorn.svg
+            href: "{{HOMEPAGE_VAR_LONGHORN_URL}}"
+            description: K8s storage
     - Apps:
         - Open-webui:
             icon: chatgpt.svg
@@ -94,6 +116,11 @@ data:
             icon: atlassian-jira.svg
             href: https://wekan.natetech.org
             description: Kanban board
+    - Monitoring
+        - Grafana
+            icon: grafana.svg
+            href: https://grafana.natetech.org
+            description: Grafana
     - Other:
         - GitLab:
             icon: gitlab.svg
