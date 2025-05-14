@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: homepage
+  namespace: homepage
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  ingressClassName: "traefik"
+  rules:
+  - host: home.natetech.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: homepage-service
+            port:
+              number: 3000
+  tls:
+  - hosts:
+    - home.natetech.org
+    secretName: homepage-certificate-secret
