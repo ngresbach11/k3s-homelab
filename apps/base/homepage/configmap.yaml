@@ -88,7 +88,7 @@ data:
             description: K8s storage
         - NAS:
             icon: longhorn.svg
-            href: "{{HOMEPAGE_VAR_UNRAID_url}}"
+            href: "{{HOMEPAGE_VAR_UNRAID_URL}}"
             description: NAS
     - Apps:
         - Open-webui:
