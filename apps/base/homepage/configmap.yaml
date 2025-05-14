@@ -86,7 +86,7 @@ data:
             icon: longhorn.svg
             href: "{{HOMEPAGE_VAR_LONGHORN_URL}}"
             description: K8s storage
-        - NAS
+        - NAS:
             icon: longhorn.svg
             href: "{{HOMEPAGE_VAR_UNRAID_url}}"
             description: NAS
