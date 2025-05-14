@@ -81,6 +81,23 @@ data:
               url: "{{HOMEPAGE_VAR_PORTAINER_URL}}"
               env: 2
               key: "{{HOMEPAGE_VAR_PORTAINER_API_KEY}}"
+    - DNS:
+        - Pi-Hole1:
+            icon: pi-hole.svg
+            href: "{{HOMEPAGE_VAR_PIHOLE_URL_1}}"
+            description: Pi-Hole1
+            widget:
+              type: pihole
+              url: "{{HOMEPAGE_VAR_PIHOLE_URL_1}}"
+              key: "{{HOMEPAGE_VAR_PIHOLE_API_KEY_1}}"
+        - Pi-Hole2:
+            icon: pi-hole.svg
+            href: "{{HOMEPAGE_VAR_PIHOLE_URL_2}}"
+            description: Pi-Hole2
+            widget:
+              type: pihole
+              url: "{{HOMEPAGE_VAR_PIHOLE_URL_2}}"
+              key: "{{HOMEPAGE_VAR_PIHOLE_API_KEY_2}}"
     - Storage:
         - Longhorn:
             icon: longhorn.svg
