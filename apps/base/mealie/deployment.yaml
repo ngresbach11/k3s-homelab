@@ -21,9 +21,9 @@ spec:
           image: ghcr.io/mealie-recipes/mealie:v2.8.0
           ports:
             - containerPort: 9000
-          envFrom:
-            - secretRef:
-                name: mealie-container-env
+          #envFrom:
+          #  - secretRef:
+          #      name: mealie-container-env
           securityContext:
             allowPrivilegeEscalation: false
           volumeMounts:
