@@ -12,10 +12,6 @@ spec:
       labels:
         app: mealie
     spec:
-      securityContext:
-        fsGroup: 1000
-        runAsUser: 1000
-        runAsGroup: 1000
       containers:
         - name: mealie
           image: ghcr.io/mealie-recipes/mealie:v2.8.0
