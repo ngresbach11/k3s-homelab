@@ -25,7 +25,12 @@ spec:
           volumeMounts:
             - name: mealie-data
               mountPath: /app/data
+            - name: mealie-nltk-data
+              mountPath: /var/www/nltk_data
       volumes:
         - name: mealie-data
           persistentVolumeClaim:
             claimName: mealie-data-pvc
+        - name: mealie-nltk-data
+          persistentVolumeClaim:
+            claimName: mealie-nltk-data-pvc
