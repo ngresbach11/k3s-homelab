@@ -3,5 +3,4 @@ kind: Kustomization
 namespace: mealie
 resources:
   - ../../base/mealie
-  - ingress.yaml
-  - certificate.yaml
+  - mealie-tunnel-secret.yaml
