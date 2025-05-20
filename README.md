@@ -49,6 +49,7 @@ To keep things organized, I've sticked to Flux's official [guide for structuring
 
 ## Currently deployed publically exposed applications
 
+- [Mealie](https://mealie.io/) - Recipe management application. One of my goals this year is to get better at cooking, and this is a good way for me to be able to save recipes I find online and try them out. I'm exposing this so a few friends can try it as well, and it makes it easier if I want to meal-prep at a friend's house. Hosted at https://mealie.natetech.org/
 - [Linkding](https://github.com/sissbruecker/linkding) - A self-hosted bookmark manager. I followed a tutorial to assist in getting this stood up as a demo application, but I am using it to save articles and other links for myself. Available hosted and exposed at https://linkding.natetech.org/
 - [Weatherstar 4000+](https://github.com/netbymatt/ws4kp) - Self hosted weather site that pulls data from [NOAA's weather API](https://www.weather.gov/documentation/services-web-api) and displays it in the style of a 90s weather channel. Being hosted and exposed at https://weatherstar.natetech.org
 
