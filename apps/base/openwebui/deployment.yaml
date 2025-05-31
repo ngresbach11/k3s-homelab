@@ -21,10 +21,10 @@ spec:
         resources:
           requests:
             cpu: "500m"
-            memory: "500Mi"
+            memory: "1Gi"
           limits:
             cpu: "1000m"
-            memory: "1Gi"
+            memory: "2Gi"
         env:
         - name: OLLAMA_BASE_URL
           value: "http://172.21.1.2:11434"
