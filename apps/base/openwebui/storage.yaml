@@ -6,7 +6,7 @@ metadata:
   name: open-webui-pvc
   namespace: open-webui
 spec:
-  accessModes: ["ReadWriteOnce"]
+  accessModes: ["ReadWriteMany"]
   storageClassName: longhorn
   resources:
     requests:
