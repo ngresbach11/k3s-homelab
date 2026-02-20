@@ -19,15 +19,27 @@ spec:
       volumes:
         - name: nginx-includes
           emptyDir: {}
+        - name: nginx-cache
+          emptyDir: {}
+        - name: nginx-run
+          emptyDir: {}
       initContainers:
         - name: init-nginx-dirs
           image: ghcr.io/netbymatt/ws4kp:6.5.0
-          command: ["sh", "-c", "chown 1000:1000 /etc/nginx/includes"]
+          command:
+            - sh
+            - -c
+            - |
+              chown 1000:1000 /etc/nginx/includes /var/cache/nginx /var/run
           securityContext:
             runAsUser: 0
           volumeMounts:
             - name: nginx-includes
               mountPath: /etc/nginx/includes
+            - name: nginx-cache
+              mountPath: /var/cache/nginx
+            - name: nginx-run
+              mountPath: /var/run
       containers:
         - name: weatherstar
           image: ghcr.io/netbymatt/ws4kp:6.5.0
@@ -38,3 +50,7 @@ spec:
           volumeMounts:
             - name: nginx-includes
               mountPath: /etc/nginx/includes
+            - name: nginx-cache
+              mountPath: /var/cache/nginx
+            - name: nginx-run
+              mountPath: /var/run
