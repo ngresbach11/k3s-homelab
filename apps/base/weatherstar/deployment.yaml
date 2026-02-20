@@ -16,6 +16,18 @@ spec:
         fsGroup: 1000 # node group ID
         runAsUser: 1000 # node user ID
         runAsGroup: 1000 # node group ID
+      volumes:
+        - name: nginx-includes
+          emptyDir: {}
+      initContainers:
+        - name: init-nginx-dirs
+          image: ghcr.io/netbymatt/ws4kp:6.5.0
+          command: ["sh", "-c", "chown 1000:1000 /etc/nginx/includes"]
+          securityContext:
+            runAsUser: 0
+          volumeMounts:
+            - name: nginx-includes
+              mountPath: /etc/nginx/includes
       containers:
         - name: weatherstar
           image: ghcr.io/netbymatt/ws4kp:6.5.0
@@ -23,3 +35,6 @@ spec:
             - containerPort: 8080
           securityContext:
             allowPrivilegeEscalation: false
+          volumeMounts:
+            - name: nginx-includes
+              mountPath: /etc/nginx/includes
