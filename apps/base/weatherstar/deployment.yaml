@@ -18,7 +18,7 @@ spec:
         runAsGroup: 1000 # node group ID
       containers:
         - name: weatherstar
-          image: ghcr.io/netbymatt/ws4kp:sha-cab2da5 # I don't know if renovate will work with this tag format, pinning latest one here as of today
+          image: ghcr.io/netbymatt/ws4kp:6.5.0
           ports:
             - containerPort: 8080
           securityContext:
