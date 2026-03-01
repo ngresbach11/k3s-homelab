@@ -3,5 +3,3 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - repository.yaml
-  - certmanager-clusterissuer.yaml
-  - certmanager-issuer-secret.yaml
