@@ -18,3 +18,9 @@ spec:
     crds: Create
   upgrade:
     crds: CreateReplace
+  values:
+    defaultSettings:
+      defaultReplicaCount: "2"
+      storageMinimalAvailablePercentage: "15"
+      storageReservedPercentageForDefaultDisk: "15"
+      orphanAutoDeletion: "true"
