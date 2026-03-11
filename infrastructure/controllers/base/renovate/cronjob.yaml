@@ -13,7 +13,7 @@ spec:
           containers:
             - name: renovate
               # renovate: datasource=docker depName=renovate/renovate
-              image: renovate/renovate:43.59.3
+              image: renovate/renovate:43.63.0
               args:
                 - ngresbach11/k3s-homelab
               envFrom:
