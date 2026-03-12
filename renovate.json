@@ -7,5 +7,12 @@
   },
   "ignorePaths": [
     "clusters/**"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["renovate"],
+      "schedule": ["before 9am on Monday"],
+      "minimumReleaseAge": "7 days"
+    }
   ]
 }
