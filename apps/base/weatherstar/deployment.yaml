@@ -25,7 +25,7 @@ spec:
           emptyDir: {}
       initContainers:
         - name: init-nginx-dirs
-          image: ghcr.io/netbymatt/ws4kp:6.5.3
+          image: ghcr.io/netbymatt/ws4kp:6.5.4
           command:
             - sh
             - -c
@@ -42,7 +42,7 @@ spec:
               mountPath: /var/run
       containers:
         - name: weatherstar
-          image: ghcr.io/netbymatt/ws4kp:6.5.3
+          image: ghcr.io/netbymatt/ws4kp:6.5.4
           ports:
             - containerPort: 8080
           securityContext:
