@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: open-webui
-        image: dyrnq/open-webui:v0.8.12
+        image: dyrnq/open-webui:v0.9.2
         ports:
         - containerPort: 8080
         resources:
