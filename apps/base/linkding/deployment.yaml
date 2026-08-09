@@ -25,7 +25,7 @@ spec:
               mountPath: /etc/linkding/data
       containers:
         - name: linkding
-          image: sissbruecker/linkding:1.45.0
+          image: sissbruecker/linkding:1.46.0
           ports:
             - containerPort: 9090
           envFrom:
