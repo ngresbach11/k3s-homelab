@@ -18,7 +18,7 @@ spec:
         runAsGroup: 101 # nginx group ID
       containers:
         - name: openspeedtest
-          image: openspeedtest/latest:v2.0.6
+          image: openspeedtest/latest:v2.0.8
           ports:
             - containerPort: 3000
           securityContext:
