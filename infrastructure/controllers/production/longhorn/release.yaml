@@ -24,3 +24,20 @@ spec:
       storageMinimalAvailablePercentage: "15"
       storageReservedPercentageForDefaultDisk: "15"
       orphanAutoDeletion: "true"
+  postRenderers:
+    # The chart's recovery-backend NetworkPolicy admits share-manager pods by
+    # label. k3s's policy controller takes ~1s to allow a new pod's IP, and
+    # NFS-Ganesha calls the recovery backend once during that window, then
+    # exits, so RWX volumes can get stuck in "starting" after reboots.
+    # Allowing the pod CIDR avoids waiting on per-pod updates.
+    - kustomize:
+        patches:
+          - target:
+              kind: NetworkPolicy
+              name: longhorn-recovery-backend
+            patch: |
+              - op: replace
+                path: /spec/ingress/0/from
+                value:
+                  - ipBlock:
+                      cidr: 10.42.0.0/16
